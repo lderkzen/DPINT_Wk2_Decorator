@@ -17,15 +17,16 @@ namespace DPINT_Wk2_Decorator.Model.Decorator
 
 		public override Attack Attack()
 		{
+			var attack = Fighter.Attack();
 			if (_poisonStrength > 0)
 			{
-				TotalAttack.Messages.Add("Poison weakening, current value: " + _poisonStrength);
-				TotalAttack.Value += _poisonStrength;
+				attack.Messages.Add("Poison weakening, current value: " + _poisonStrength);
+				attack.Value += _poisonStrength;
 				_poisonStrength -= 2;
 			}
 			else
-				TotalAttack.Messages.Add("Poison ran out.");
-			return NextFighter.Attack();
+				attack.Messages.Add("Poison ran out.");
+			return attack;
 		}
 	} 
 }

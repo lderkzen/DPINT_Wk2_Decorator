@@ -19,16 +19,17 @@ namespace DPINT_Wk2_Decorator.Model.Decorator
 
 		public override Attack Attack()
 		{
+			var attack = Fighter.Attack();
 			AttackValue = Convert.ToInt32(AttackValue * _attackMultiplier);
-			TotalAttack.Messages.Add("Strengthened your attack stat by:" + _attackMultiplier);
-			return NextFighter.Attack();
+			attack.Messages.Add("Strengthened your attack stat by: " + _attackMultiplier);
+			return attack;
 		}
 
 		public override void Defend(Attack attack)
 		{
 			DefenseValue = Convert.ToInt32(DefenseValue * _defenseMultiplier);
-			TotalAttack.Messages.Add("Strengthened your defense stat by:" + _defenseMultiplier);
-			NextFighter.Defend(attack);
+			attack.Messages.Add("Strengthened your defense stat by: " + _defenseMultiplier);
+			Fighter.Defend(attack);
 		}
 	}
 }

@@ -39,24 +39,18 @@ namespace DPINT_Wk2_Decorator.Model
                 {
                     case DOUBLE_HANDED:
 						fighter = new DoubleHandedDecorator(fighter);
-						//fighter.DoubleHanded = true;
                         break;
                     case MINION:
 						fighter = new MinionDecorator(fighter, fighter.Lives / 2, fighter.AttackValue / 2);
-						//fighter.MinionLives = fighter.Lives / 2;
-                        //fighter.MinionAttackValue = fighter.AttackValue / 2;
                         break;
                     case POISON:
 						fighter = new PoisonDecorator(fighter, 10);
-						//fighter.PoisonStrength = 10;
                         break;
                     case SHIELD:
 						fighter = new ShieldDecorator(fighter, 3);
-						//fighter.ShieldDefends = 3;
                         break;
                     case SHOTGUN:
 						fighter = new ShotgunDecorator(fighter);
-						//fighter.UseShotgun = true;
                         break;
 					case STRENGTHEN:
 						fighter = new StrengthenDecorator(fighter);

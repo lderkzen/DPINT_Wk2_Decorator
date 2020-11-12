@@ -17,18 +17,19 @@ namespace DPINT_Wk2_Decorator.Model.Decorator
 
 		public override Attack Attack()
 		{
+			var attack = Fighter.Attack();
 			if (_shotgunRoundsFired < 2)
 			{
-				TotalAttack.Messages.Add("Shotgun: 20");
-				TotalAttack.Value += 20;
+				attack.Messages.Add("Shotgun: 20");
+				attack.Value += 20;
 				_shotgunRoundsFired++;
 			}
 			else
 			{
-				TotalAttack.Messages.Add("Shotgun reloading, no extra damage.");
+				attack.Messages.Add("Shotgun reloading, no extra damage.");
 				_shotgunRoundsFired = 0;
 			}
-			return NextFighter.Attack();
+			return attack;
 		}
 	}
 }

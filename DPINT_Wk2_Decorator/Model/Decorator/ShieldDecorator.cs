@@ -23,7 +23,7 @@ namespace DPINT_Wk2_Decorator.Model.Decorator
 				attack.Value = 0;
 				_shieldDefends--;
 			}
-			NextFighter.Defend(attack);
+			Fighter.Defend(attack);
 		}
 	}
 }

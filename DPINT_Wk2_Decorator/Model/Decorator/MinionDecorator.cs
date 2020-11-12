@@ -19,12 +19,13 @@ namespace DPINT_Wk2_Decorator.Model.Decorator
 
 		public override Attack Attack()
 		{
+			var attack = Fighter.Attack();
 			if (_minionLives > 0)
 			{
-				TotalAttack.Messages.Add("Minion helping the attack: " + _minionAttackValue);
-				TotalAttack.Value += _minionAttackValue;
+				attack.Messages.Add("Minion helping the attack: " + _minionAttackValue);
+				attack.Value += _minionAttackValue;
 			}
-			return NextFighter.Attack();
+			return attack;
 		}
 
 		public override void Defend(Attack attack)
@@ -36,7 +37,7 @@ namespace DPINT_Wk2_Decorator.Model.Decorator
 				attack.Value -= Math.Max(0, tmpLives - _minionLives);
 				attack.Messages.Add("Minion defended from the attack: -" + attack.Value);
 			}
-			NextFighter.Defend(attack);
+			Fighter.Defend(attack);
 		}
 	}
 }
